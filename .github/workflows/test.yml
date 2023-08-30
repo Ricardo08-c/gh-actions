@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - name: Checkout code
@@ -15,7 +15,7 @@ jobs:
       - name: setup docker env
         uses: docker://centos:8
       - name: Build project
-        run:  |
+        run: |
           yum update -y
           yum install -y make
       - name: Build make

@@ -18,7 +18,7 @@ jobs:
         run:  |
           yum update -y
           yum install -y make
-      -name: Build make
+      - name: Build make
         working-directory: rpm/linux-build
         run: |
           make clean && make

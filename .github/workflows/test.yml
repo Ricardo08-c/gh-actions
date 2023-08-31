@@ -18,6 +18,7 @@ jobs:
       - name: Build project
         run: |
           yum update -y
+          yum install rpm-buil
           yum install -y make
       - name: Build make
         working-directory: rpm/linux-build

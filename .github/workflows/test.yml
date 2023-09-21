@@ -3,20 +3,22 @@ name: My Workflow
 on:
   push:
     branches:
-      - main
+      - release
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    steps:
+    container: 
+      image: fedora
+    steps:          
       - name: Checkout code
         uses: actions/checkout@v3
       - name: setup docker env
         uses: docker://centos:8
       - name: Build project
-        run:  |
+        run: |
           yum update -y
+          yum install -y rpm-build
           yum install -y make
       - name: Build make
         working-directory: rpm/linux-build
